@@ -1,0 +1,195 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="agent-dashboard.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+<!-- Include the above in your HEAD tag -->
+
+<script type= "text/javascript">
+$(document).ready(()=>{
+  console.log('please JS,let me learn you');
+  $('#babu').click(() => {
+      $.ajax({
+        url: 'package-lock/',
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => {
+          console.log('ajax success!');
+        }
+      });
+  });
+});
+</script> --}}
+
+<script>
+  var btn = document.getElementById("babu");
+  btn.addEventListener("click",function(){
+    var myRequest = new XMLHttpRequest();
+    myRequest.open('GET','mongodb://localhost:27017/agentdata');
+    myRequest.onload = function(){
+      var myData = JSON.parse(myRequest.responseText);
+      console.log(myData);
+    };
+    myRequest.send();
+  });
+</script>
+
+
+<body> 
+ <!--Side Navigation-->
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+     <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav">
+
+          <a class="nav-link navlogo text-center" href="#">
+            <img src="myshikshak-icon.png">
+          </a>
+
+        <li class="nav-item">
+          <a class="nav-link sidefrst" href="#">
+            <span class="textside">Working Clients</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link sidesecnd" href="#">
+            <span class="textside">Pending Clients</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sidesthrd" href="#">
+            <span class="textside">Points Earned</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sidesforth" href="#">
+            <span class="textside">Quotations</span>
+          </a>
+        </li>
+      </ul>
+     </div>
+     </nav>
+    
+     
+
+   
+  <!-- Upper Navbar-->  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
+        <a class="navbar-brand" href="#">MyShikshak</a>
+        <div class="collapse navbar-collapse" id="exCollapsingNavbar">
+            <ul class="nav navbar-nav">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/agent-profile?id={{agent_obj_id}}" class="nav-link">Profile</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Service</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Help</a></li>
+                
+            </ul>
+             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+                 <li class="dropdown">
+                   <a class="navbar-brand dropdown-toggle" data-toggle="dropdown" href="#">{{aName}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-content">
+                      <li><a href="/agent-profile?id={{agent_obj_id}}">Profile</a></li>
+                      <li><a href="/about">About</a></li>
+                      <li><a href="/report">Report</a></li>
+                      <li><a href="/agent-logout?id={{agent_obj_id}}">Logout</a></li> 
+                   </ul>
+                </li>
+            </ul> 
+            
+            
+        </div>
+        
+</nav>
+
+
+<!-- Icon Cards-->
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-2 col-sm-6 col-12 mb-2 mt-4">
+            <div class="inforide">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-4 rideone">
+                    <img src="myshikshak-icon.png">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-8 fontsty">
+                    <h4>No. of Clients</h4>
+                    <h2>{{no_client}}</h2>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+            <div class="inforide">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridetwo">
+                    <img src="myshikshak-icon.png">
+                </div>
+                <div class="col-lg-7 col-md-8 col-sm-8 col-6 fontsty">
+                    <a href="/total-tutor?id={{agent_obj_id}}"><h4>Tutors</h4></a>
+                    <h2>{{no_tutors}}</h2>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+            <div class="inforide">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridethree">
+                    <img src="myshikshak-icon.png">
+                </div>
+                <div class="col-lg-7 col-md-8 col-sm-8 col-8 fontsty">
+                    <a href="/total-learner?id={{agent_obj_id}}"><h4>Learners</h4></a>
+                    <h2>{{no_learners}}</h2>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="card tutor">
+            <h5 class="card-title ct">Add Tutor</h5>
+            <div class="card-body text-center">
+            <a type="button" id="babu" class="btn btn-primary" href="/client-tutor?id={{agent_obj_id}}">Proceed</a>
+            </div>
+       </div>
+
+       <div class="card learner">
+            <h5 class="card-title ct">Add learner</h5>
+            <div class="card-body text-center">
+            <a type="button" class="btn btn-primary" style="border-radius: 5px;" href="/client-learner?id={{agent_obj_id}}">Proceed</a>
+            </div>
+       </div>
+
+
+    </div>
+  </div>
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

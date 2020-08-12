@@ -1,0 +1,16 @@
+.formhead{
+	font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+.form-style{
+    border: 2px solid white;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+    border-radius: 25px;
+    padding: 20px;
+    width: 800px;
+    height: 500px;
+    background-color: #F0FFF0;
+}

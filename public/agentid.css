@@ -1,0 +1,29 @@
+.card-style{
+  margin-top: 50px;
+  border: 2px solid white;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  border-radius: 25px;
+  padding: 20px;
+  width: 800px;
+  height: 200px;
+  background-color: #F0FFF0;
+}
+.setbutt{
+  margin-left: 310px;
+}
+.ch{
+  text-align: center;
+  font-size: 27px;
+  font-weight: bold;
+}
+.ct {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.c-text{
+  text-align: center;
+  font-weight: bold;
+}
